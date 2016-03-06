@@ -27,16 +27,20 @@ public class ListaDobleRun {
 		lista.insertarDespuesDe(37, lista.obtenerUltimo());
 		lista.insertarDespuesDe(38, lista.obtenerUltimo());
 		
+		lista.eliminarAntesDe(35);
+		
 		for(Integer i : lista){
 			System.out.println(i);
 		}
 		
+		System.out.println("=Z "+lista.getTamano());
+		
 		System.out.println("----------------");
 		
-		Iterator<Integer> ie = lista.iteratorCuentaAtras();
+/*		Iterator<Integer> ie = lista.iteratorCuentaAtras();
 		while(ie.hasNext()){
 			System.out.println(ie.next());
-		}
+		}*/
 	}
 
 }

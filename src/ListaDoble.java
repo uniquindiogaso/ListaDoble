@@ -65,8 +65,9 @@ public class ListaDoble<T> implements Iterable<T>{
 				Nodo<T> nuevoNodo = new Nodo<T>(dato, nodoBase.getSiguiente());
 				nodoBase.getSiguiente().setAnterior(nuevoNodo);
 				nodoBase.setSiguiente(nuevoNodo);
+				tamano++;
 			}
-			tamano++;
+			
 		}
 	}
 
@@ -134,6 +135,56 @@ public class ListaDoble<T> implements Iterable<T>{
 				tamano--;
 			}
 
+		}
+	}
+	
+	public void eliminarDespuesDe(T dato){
+		Nodo<T> nodoBase = buscar(dato);
+		if (nodoBase != null){
+			if (tamano == 1){
+				eliminarTodo();
+			}else{
+								
+				int restar = 0;
+				
+				Nodo<T> nodoRecorrido = nodoBase;
+				
+				while(nodoRecorrido.getSiguiente() != null){
+					restar++;
+					nodoRecorrido  = nodoRecorrido.getSiguiente();
+				}
+				
+				nodoBase.setSiguiente(null);				
+				cola = nodoBase;				
+				tamano = tamano - restar;
+					
+				
+			}
+		}
+	}
+	
+	public void eliminarAntesDe(T dato){
+		Nodo<T> nodoBase = buscar(dato);
+		if (nodoBase != null){
+			if (tamano == 1){
+				eliminarTodo();
+			}else{
+								
+				int restar = 0;
+				
+				Nodo<T> nodoRecorrido = nodoBase;
+				
+				while(nodoRecorrido.getAnterior() != null){
+					restar++;
+					nodoRecorrido  = nodoRecorrido.getAnterior();
+				}
+				
+				nodoBase.setAnterior(null);				
+				cabeza = nodoBase;				
+				tamano = tamano - restar;
+					
+				
+			}
 		}
 	}
 
